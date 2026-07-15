@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Passaporte Pixel - Biomas da Copa</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="estilo.css">
+</head>
+<body>
+
+<!-- Tela Inicial -->
+<div class="tela tela-inicial" id="telaInicial">
+    <div class="caixa-titulo">
+        <h1>PASSPORTE PIXEL</h1>
+        <p>BIOMAS DA COPA DO MUNDO 🌍🌿</p>
+    </div>
+
+    <!-- Passaporte visível e clicável -->
+    <div class="passaporte-menu" onclick="irParaDificuldade()" title="Clique no passaporte para começar!"></div>
+</div>
+
+<!-- Tela de Escolha de Dificuldade -->
+<div class="tela tela-dificuldade" id="telaDificuldade">
+    <h2>ESCOLHA O NÍVEL DE DESAFIO</h2>
+    <div class="caixa-niveis">
+        <button class="botao-nivel facil" onclick="definirNivel('facil')">🟢 FÁCIL</button>
+        <button class="botao-nivel medio" onclick="definirNivel('medio')">🟡 MÉDIO</button>
+        <button class="botao-nivel dificil" onclick="definirNivel('dificil')">🔴 DIFÍCIL</button>
+    </div>
+    <button class="botao-voltar-pequeno" onclick="voltarParaInicio()">← VOLTAR</button>
+    <button class="botao-avancar" onclick="iniciarJogo()">IR AO MAPA 🗺️</button>
+</div>
+
+<!-- Resto das telas continua igual -->
+<div class="tela tela-mapa" id="telaMapa">
+    <button class="botao-voltar" onclick="voltarParaDificuldade()">← VOLTAR</button>
+    <h2>SELECIONE SEU DESTINO</h2>
+    <div class="info-jogo">
+        <p>Nível: <span id="nivelAtual">---</span></p>
+        <p>Erros: <span id="contadorErrosMapa">0</span>/7</p>
+    </div>
+    <div class="area-mapa">
+        <div class="ponto liberado" id="ponto-br" onclick="abrirPais('br')">BR</div>
+        <div class="ponto bloqueado" id="ponto-es" onclick="abrirPais('es')">ES</div>
+        <div class="ponto bloqueado" id="ponto-fr" onclick="abrirPais('fr')">FR</div>
+        <div class="ponto bloqueado" id="ponto-de" onclick="abrirPais('de')">DE</div>
+        <div class="ponto bloqueado" id="ponto-it" onclick="abrirPais('it')">IT</div>
+        <div class="ponto bloqueado" id="ponto-gb" onclick="abrirPais('gb')">GB</div>
+        <div class="ponto bloqueado" id="ponto-ar" onclick="abrirPais('ar')">AR</div>
+        <div class="ponto bloqueado" id="ponto-uy" onclick="abrirPais('uy')">UY</div>
+        <div class="ponto bloqueado" id="ponto-us" onclick="abrirPais('us')">US</div>
+        <div class="aviao" id="aviao">✈️</div>
+    </div>
+    <div class="aviso-bloqueio" id="avisoBloqueio">🔒 PAÍS BLOQUEADO!<br>Conclua o anterior primeiro!</div>
+</div>
+
+<div class="tela tela-aeroporto" id="telaAeroporto">
+    <button class="botao-voltar" onclick="voltarParaMapa()">← VOLTAR AO MAPA</button>
+    <h2 id="nomeAeroporto">AEROPORTO</h2>
+    <p class="contador-erros">Erros: <span id="contadorErros">0</span>/7</p>
+    <div class="mesa"></div>
+    <div class="passaporte" id="passaporte"></div>
+    <div class="notebook" id="notebook" onclick="abrirQuiz()"></div>
+    <div class="tela-quiz" id="telaQuiz">
+        <div class="cabecalho-quiz">
+            <span id="nomePais">PAÍS</span>
+            <span id="progresso">1/4</span>
+            <span id="dificuldade">FACIL</span>
+        </div>
+        <div class="pergunta" id="textoPergunta">Clique no notebook para começar!</div>
+        <div class="opcoes" id="opcoes"></div>
+        <div class="feedback" id="feedback"></div>
+    </div>
+    <div class="funcionario" id="funcionario"></div>
+    <div class="portao" id="portao" onclick="voltarParaMapa()">PORTÃO<br>VOLTAR AO MAPA</div>
+    <div class="aviso-geral" id="avisoGeral"></div>
+</div>
+
+<div class="tela tela-deportacao" id="telaDeportacao">
+    <h2>🚫 DEPORTADO!</h2>
+    <p>Você atingiu o limite de 7 erros e foi enviado de volta.<br>Refaça sua jornada com mais atenção!</p>
+    <button class="botao-reiniciar" onclick="reiniciarJogo()">REINICIAR JORNADA</button>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
